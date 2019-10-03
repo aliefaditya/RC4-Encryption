@@ -17,7 +17,7 @@ for i in range(4):
 j = 0
 
 #Random the S
-for i in range(10):
+for i in range(0, len(S)):
     j = ((j + S[i] + K[i%4]) % 4)
     swap(S, i, j)
 print("S Aksen   : ", S)
