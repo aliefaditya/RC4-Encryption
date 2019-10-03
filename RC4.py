@@ -1,11 +1,8 @@
-import RC4
-
 #Soal : Enkripsi NIM dengan kunci sebanyak 4 dengan RC4
 
 #Deklarasi sebuah variabel
 S = [1,3,0,1,1,7,4,0,5,5]
 K = [3,4,5,1]
-a = [11,12,13]
 
 #Function Swap
 def swap(S, i, j):
@@ -23,7 +20,7 @@ j = 0
 for i in range(10):
     j = ((j + S[i] + K[i%4]) % 4)
     swap(S, i, j)
-print("S Aksen : ", S)
+print("S Aksen   : ", S)
 
 i = 0
 j = 0
@@ -36,6 +33,9 @@ for i in range(4):
     t = ((S[i] + S[j]) % 4)
     KeyStreamByte = S[t]
 
-    #proses XOR
+    #Proses XOR antara setiap bit dengan keystream
+    S[i] = S[i]^KeyStreamByte 
     
 print("Keystream : ",KeyStreamByte)
+print("S Akhir   : ",S)
+
