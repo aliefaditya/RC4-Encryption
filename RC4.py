@@ -11,6 +11,8 @@ def swap(S, i, j):
     S[j] = temp 
     return S
 
+print("S awal    : ", S)
+
 #Random the Key
 for i in range(4):
     K[i] = K[i%4]
@@ -35,7 +37,8 @@ for i in range(4):
 
     #Proses XOR antara setiap bit dengan keystream
     S[i] = S[i]^KeyStreamByte 
-    
+
 print("Keystream : ",KeyStreamByte)
 print("S Akhir   : ",S)
 
+#Decrypt
