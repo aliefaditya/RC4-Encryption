@@ -41,10 +41,13 @@ for i in range(10):
     swap(S, i, j)
     t = ((S[i] + S[j]) % 4)
     KeyStreamByte = S[t]
-    ListKSB.append(KeyStreamByte) #save the KeyStreamByte on each iteration in List for decryption  
+    if(i <= 3):
+         ListKSB.append(KeyStreamByte) #save the KeyStreamByte on each iteration in List for decryption  
+   
 
     #Proses XOR antara setiap bit dengan keystream
-    S[i] = S[i]^KeyStreamByte
+for i in range(10):
+    S[i] = S[i]^ListKSB[i%3]
 
 print("List KSB  : ", ListKSB)
 print("S Akhir   : ", S)
@@ -66,8 +69,8 @@ print("===========================")
 """
 
 for i in range(10):
-
     #Proses XOR antara setiap bit dengan keystream
-    S[i] = ((S[i]^ListKSB[i])^ListKSB[i])
+    S[i] = ((S[i]^ListKSB[i%3]))
 
 print("S Aksen    : ",S)
+
